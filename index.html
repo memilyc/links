@@ -32,7 +32,7 @@
       background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px), radial-gradient(circle at 50% 0, rgba(126,231,135,.1), transparent 55%);
       background-size: 36px 36px, 36px 36px, 100% 100%; }
     .page { width: min(100%, 560px); position: relative; }
-    .theme-toggle { position: absolute; top: 0; right: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--bar); color: var(--text); padding: 8px 10px; cursor: pointer; font: inherit; font-size: 13px; line-height: 1; transition: border-color .2s, transform .2s; }
+    .theme-toggle { position: absolute; z-index: 3; top: 8px; right: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bar); color: var(--text); padding: 8px 10px; cursor: pointer; font: inherit; font-size: 13px; line-height: 1; transition: border-color .2s, transform .2s; }
     .theme-toggle:hover, .theme-toggle:focus-visible { border-color: var(--green); transform: translateY(-1px); outline: none; }
     .window { overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); box-shadow: 0 24px 70px var(--shadow); animation: boot .45s ease both; }
     .window-bar { display: flex; align-items: center; gap: 7px; min-height: 42px; padding: 0 14px; background: var(--bar); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 12px; }
@@ -94,7 +94,7 @@
     if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
     function updateToggle() {
       const light = root.dataset.theme === 'light';
-      toggle.innerHTML = light ? '<span aria-hidden="true">☾</span> dark' : '<span aria-hidden="true">☼</span> light';
+      toggle.innerHTML = light ? '<span aria-hidden="true">☼</span> light' : '<span aria-hidden="true">☾</span> dark';
       toggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
       toggle.setAttribute('aria-pressed', String(light));
     }
