@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emily Chang · links</title>
+  <meta name="description" content="The links of M. Emily Chang — Senior Support Engineer, builder, and curious human.">
+  <meta name="theme-color" content="#0b0e14">
+  <meta property="og:title" content="Emily Chang · links">
+  <meta property="og:description" content="Find Emily Chang around the web.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0e14; --panel: #10151e; --bar: #171e29; --text: #d2d8e3;
+      --muted: #8f9aaa; --border: #293342; --green: #7ee787; --cyan: #64d8e5;
+      --yellow: #f0d264; --shadow: rgba(0,0,0,.45); --grid: rgba(126,231,135,.055);
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #e8e3d6; --panel: #f8f4e9; --bar: #e1dac7; --text: #403c35;
+      --muted: #665f51; --border: #cec5b2; --green: #246d44; --cyan: #136878;
+      --yellow: #755000; --shadow: rgba(69,56,33,.2); --grid: rgba(48,105,46,.07);
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); transition: background .25s ease; }
+    body { min-height: 100vh; margin: 0; padding: 24px 16px; display: grid; place-items: center;
+      color: var(--text); font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px), radial-gradient(circle at 50% 0, rgba(126,231,135,.1), transparent 55%);
+      background-size: 36px 36px, 36px 36px, 100% 100%; }
+    .page { width: min(100%, 560px); position: relative; }
+    .theme-toggle { position: absolute; top: 0; right: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--bar); color: var(--text); padding: 8px 10px; cursor: pointer; font: inherit; font-size: 13px; line-height: 1; transition: border-color .2s, transform .2s; }
+    .theme-toggle:hover, .theme-toggle:focus-visible { border-color: var(--green); transform: translateY(-1px); outline: none; }
+    .window { overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); box-shadow: 0 24px 70px var(--shadow); animation: boot .45s ease both; }
+    .window-bar { display: flex; align-items: center; gap: 7px; min-height: 42px; padding: 0 14px; background: var(--bar); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+    .dot:nth-child(2) { background: var(--yellow); } .dot:nth-child(3) { background: #ed7b91; }
+    .window-title { margin-left: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    main { padding: clamp(30px, 7vw, 54px) clamp(20px, 7vw, 56px) 34px; }
+    .profile { text-align: center; }
+    .avatar { width: 78px; height: 78px; display: block; margin: 0 auto 18px; border: 1px solid var(--green); border-radius: 10px; color: var(--green); background: rgba(126,231,135,.08); box-shadow: 0 0 0 5px rgba(126,231,135,.04); object-fit: cover; }
+    h1 { margin: 0; color: var(--text); font-size: clamp(20px, 4vw, 26px); letter-spacing: -.04em; }
+    .handle { margin: 10px 0 0; color: var(--cyan); font-size: 13px; }
+    .bio { max-width: 410px; margin: 18px auto 30px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .prompt { margin-bottom: 10px; color: var(--muted); font-size: 12px; }
+    .prompt b { color: var(--green); font-weight: 500; } .prompt span { color: var(--cyan); }
+    .links { display: grid; gap: 12px; }
+    .link { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 13px 16px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; background: color-mix(in srgb, var(--panel) 88%, var(--bar)); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .link:hover, .link:focus-visible { border-color: var(--green); background: var(--bar); transform: translateY(-2px); outline: none; }
+    .icon { flex: 0 0 26px; color: var(--green); } .icon svg { display: block; width: 24px; height: 24px; fill: currentColor; }
+    .link-copy { min-width: 0; } .link-title { display: block; font-size: 14px; font-weight: 700; } .link-desc { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .arrow { margin-left: auto; color: var(--muted); font-size: 16px; transition: color .2s, transform .2s; } .link:hover .arrow { color: var(--green); transform: translateX(3px); }
+    footer { padding: 0 20px 24px; text-align: center; color: var(--muted); font-size: 11px; } footer span { color: var(--green); }
+    @keyframes boot { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+    @media (max-width: 420px) { body { padding: 18px 12px; } .theme-toggle { position: static; display: block; margin: 0 0 12px auto; } main { padding: 30px 18px 28px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span aria-hidden="true">☼</span> light</button>
+    <section class="window" aria-label="Emily's links">
+      <div class="window-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="window-title">memilyc@links: ~</span></div>
+      <main>
+        <header class="profile">
+          <img class="avatar" src="https://memilyc.github.io/portfolio/assets/em.png" alt="Emily Chang">
+          <h1>M. Emily Chang</h1>
+          <p class="handle">@memilyc</p>
+          <p class="bio">Senior Support Engineer · curious builder · making complex things feel a little clearer.</p>
+        </header>
+        <div class="prompt"><b>memilyc@links</b>:<span>~</span>$ select a destination</div>
+        <nav class="links" aria-label="Social and portfolio links">
+          <a class="link" href="https://www.linkedin.com/in/memilyc" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.2 3.4a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.3 9h3.8v11.6H3.3V9Zm6.2 0h3.6v1.6h.1c.5-.9 1.7-2 3.6-2 3.9 0 4.6 2.5 4.6 5.8v6.2h-3.8v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.6H9.5V9Z"/></svg></span><span class="link-copy"><span class="link-title">LinkedIn</span><span class="link-desc">professional notes & recommendations</span></span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="link" href="https://www.instagram.com/emgineer_my" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.4 2.7h9.2a5 5 0 0 1 4.7 4.7v9.2a5 5 0 0 1-4.7 4.7H7.4a5 5 0 0 1-4.7-4.7V7.4a5 5 0 0 1 4.7-4.7Zm-.2 1.9a3 3 0 0 0-2.6 2.8v9.2a3 3 0 0 0 2.8 2.8h9.2a3 3 0 0 0 2.8-2.8V7.4a3 3 0 0 0-2.8-2.8H7.2Zm9.7 1.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.9a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Z"/></svg></span><span class="link-copy"><span class="link-title">Instagram</span><span class="link-desc">life, places & little visual notes</span></span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="link" href="https://memilyc.github.io/portfolio" target="_blank" rel="noopener noreferrer">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4.5A1.5 1.5 0 0 1 4.5 3h15A1.5 1.5 0 0 1 21 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5v-15Zm2 1v13h14v-13H5Zm2 2h3v2H7v-2Zm5 0h5v2h-5v-2Zm-5 4h3v2H7v-2Zm5 0h5v2h-5v-2Zm-5 4h10v2H7v-2Z"/></svg></span><span class="link-copy"><span class="link-title">Portfolio</span><span class="link-desc">support work, tools & case studies</span></span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </main>
+      <footer><span>~</span> built with care · 2026</footer>
+    </section>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const toggle = document.querySelector('.theme-toggle');
+    const saved = localStorage.getItem('link-theme');
+    if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    function updateToggle() {
+      const light = root.dataset.theme === 'light';
+      toggle.innerHTML = light ? '<span aria-hidden="true">☾</span> dark' : '<span aria-hidden="true">☼</span> light';
+      toggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+      toggle.setAttribute('aria-pressed', String(light));
+    }
+    toggle.addEventListener('click', () => { root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light'; localStorage.setItem('link-theme', root.dataset.theme); updateToggle(); });
+    updateToggle();
+  </script>
+</body>
+</html>
